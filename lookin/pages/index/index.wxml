@@ -1,0 +1,25 @@
+<!--index.wxml-->
+ <loading hidden="{{hidden}}">
+  加载中...
+</loading> 
+
+<view class='swiper-tab'>
+  <view class="swiper-tab-one {{currentTab==0?'swiper-tab-on':''}}" data-current="0" bindtap='swiperNav'>日报</view>
+  <view class="swiper-tab-one {{currentTab==1?'swiper-tab-on':''}}" data-current="1" bindtap='swiperNav'>精选</view>
+  <view class="swiper-tab-one {{currentTab==2?'swiper-tab-on':''}}" data-current="2" bindtap='swiperNav'>收藏</view>
+</view>
+<swiper current='{{currentTab}}' class='swiper-box' style="height:{{windowHeight-31}}px" bindchange='bindchange'>
+  <swiper-item>
+    <view class='themes-list'>
+      <view wx:for="{{list}}" wx:key="list"  class='themes-list-one'>
+        <navigator url='../themes/themes?id={{item.id}}'>
+          <view class='list-one-img'><image src='{{item.thumbnail}}'></image></view>
+          <view class='list-one-content'>{{item.description}}</view>
+        </navigator>
+      </view>
+    </view>
+  </swiper-item>
+  <swiper-item>精选</swiper-item>
+  <swiper-item>收藏</swiper-item>
+</swiper>
+
