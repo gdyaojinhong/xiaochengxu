@@ -1,14 +1,18 @@
+const util = require('../../utils/util.js');
 //index.js
 //获取应用实例
 const app = getApp()
 
 Page({
   data: {
-    hidden:true,
+    hidden: false,
     currentTab:0,
     list:"",
     windowHeight:"",
-    windowWidth:""
+    windowWidth:"",
+    topStories:""
+
+
   },
   onLoad: function () {
     var this_ = this;
@@ -22,12 +26,29 @@ Page({
       success: function(res) {
         console.log(res);
         this_.setData({
-          list: res.data.others
+          list: res.data.others,
+          hidden: true
         })
       },
       fail: function(res) {},
       complete: function(res) {},
     })
+
+    // 请求精选数据
+    util.api("news/latest", function (res) {
+
+      var arr = res.data;
+      console.log(arr)
+      // 获取当前现有数据进行保存
+      var list = this_.datalist;
+      console.log(list);
+      // 重新写入数据
+      this_.setData({
+        datalist: list,
+        topStories: arr.top_stories,
+        dataListDateCount: 1
+      });
+    });
     wx.getSystemInfo({
       success: function (res) {
         this_.setData({

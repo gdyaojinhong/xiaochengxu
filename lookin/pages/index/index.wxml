@@ -8,18 +8,24 @@
   <view class="swiper-tab-one {{currentTab==1?'swiper-tab-on':''}}" data-current="1" bindtap='swiperNav'>精选</view>
   <view class="swiper-tab-one {{currentTab==2?'swiper-tab-on':''}}" data-current="2" bindtap='swiperNav'>收藏</view>
 </view>
-<swiper current='{{currentTab}}' class='swiper-box' style="height:{{windowHeight-31}}px" bindchange='bindchange'>
+<swiper current='{{currentTab}}'  class='swiper-box' style="height:{{windowHeight-31}}px" bindchange='bindchange'>
   <swiper-item>
-    <view class='themes-list'>
+    <scroll-view class='themes-list' scroll-y='true'  upper-threshold="50">
+     <swiper class='themes-swiper'
+      autoplay="true" interval="5000" duration="500" indicator-dots="true">
+        <swiper-item wx:for="{{topStories}}">
+          <image src="{{topStories[index].image}}" class="slide-image" width="355" height="150"/>
+        </swiper-item>
+    </swiper> 
       <view wx:for="{{list}}" wx:key="list"  class='themes-list-one'>
         <navigator url='../themes/themes?id={{item.id}}'>
           <view class='list-one-img'><image src='{{item.thumbnail}}'></image></view>
           <view class='list-one-content'>{{item.description}}</view>
         </navigator>
       </view>
-    </view>
+    </scroll-view>
   </swiper-item>
-  <swiper-item>精选</swiper-item>
-  <swiper-item>收藏</swiper-item>
+  <!-- <swiper-item>精选</swiper-item>
+  <swiper-item>收藏</swiper-item> -->
 </swiper>
 

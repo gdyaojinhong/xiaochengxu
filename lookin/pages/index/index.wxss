@@ -2,6 +2,10 @@
   height: 30px;
   line-height: 30px;
   overflow: hidden;
+  position: fixed;
+  z-index: 1;
+  background-color: #ffffff;
+  width: 100%;
 }
 .swiper-tab-one{
   height: 29px;
@@ -14,9 +18,15 @@
   border-bottom: 1px solid #3A5FCD;
   color: #3A5FCD;
 }
+
+.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }
+.themes-swiper{padding-bottom: 15px;}
 .themes-list{
   display: block;
-
+  height: 100%;
+  z-index: 2;
+  position: relative;
+  margin-top: 30px;
 }
 .themes-list-one{
   display: block;
@@ -24,23 +34,22 @@
   padding: 5px 10px 5px 10px;
   overflow: hidden;
   border-bottom: 1px solid #ececec;
-  height: 60px;
+  height: 40px;
   font-size: 12px;
   color: #999999;
 }
 .list-one-img{
   position: absolute;
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
 
 }
 .list-one-img image{
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border-radius: 5px;
 }
 .list-one-content{
-  margin-left: 80px;
+  margin-left: 60px;
   vertical-align: middle
 }
-.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }
