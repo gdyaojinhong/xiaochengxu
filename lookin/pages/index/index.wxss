@@ -6,6 +6,7 @@
   z-index: 1;
   background-color: #ffffff;
   width: 100%;
+  font-size: 12px;
 }
 .swiper-tab-one{
   height: 29px;
@@ -53,3 +54,4 @@
   margin-left: 60px;
   vertical-align: middle
 }
+.themes-swiper{height: 200px;}

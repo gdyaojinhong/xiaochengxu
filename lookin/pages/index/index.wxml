@@ -25,7 +25,7 @@
       </view>
     </scroll-view>
   </swiper-item>
-  <!-- <swiper-item>精选</swiper-item>
-  <swiper-item>收藏</swiper-item> -->
+ <swiper-item>精选</swiper-item>
+  <swiper-item>收藏</swiper-item>
 </swiper>
 
